@@ -1,0 +1,24 @@
+# 忽略编译产生的垃圾目录
+Objects/
+Listings/
+Debug/
+RTE/
+
+# 忽略各类编译中间文件
+*.o
+*.d
+*.crf
+*.dep
+*.axf
+*.htm
+*.lnp
+*.sct
+*.lst
+*.map
+*.iex
+*.build_log.htm
+*.bak
+*.uvguix.*
+JLinkLog.txt
+*.uvoptx
+*.log
