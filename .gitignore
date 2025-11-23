@@ -1,10 +1,40 @@
-# 忽略编译产生的垃圾目录
+# ========================================
+# CMake + Ninja + VS Code 终极忽略规则
+# ========================================
+
+# CMake 生成的所有缓存和中间文件
+build/
+.cmake/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json   # 这个可以保留，也可以忽略（看你心情）
+*.cmake
+
+# Ninja 生成的日志
+.ninja_deps
+.ninja_log
+
+# 编译产物
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.su
+
+# VS Code 缓存（保留配置不忽略）
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+*.code-workspace
+
+# 老 Keil/MDK 垃圾（兼容你之前的项目）
 Objects/
 Listings/
 Debug/
 RTE/
-
-# 忽略各类编译中间文件
 *.o
 *.d
 *.crf
@@ -22,3 +52,10 @@ RTE/
 JLinkLog.txt
 *.uvoptx
 *.log
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+*~
