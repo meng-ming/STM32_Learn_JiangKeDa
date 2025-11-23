@@ -1,6 +1,10 @@
 # 强制让 CMake 生成完整编译选项（clangd 必须！！！）
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# 取消裸机经典 warning（量产项目必备）
+add_link_options(-Wl,--no-warn-rwx-segments)
+add_compile_options(-Wno-implicit-function-declaration)
+
 cmake_minimum_required(VERSION 3.16)
 project(WeatherClock C ASM)
 

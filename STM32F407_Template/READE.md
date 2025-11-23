@@ -27,7 +27,9 @@
 | OpenOCD               | xpack-openocd ≥ 0.12.0                | https://github.com/xpack-dev-tools/openocd-xpack/releases |
 | Ninja                 | ≥ 1.11                                | https://github.com/ninja-build/ninja/releases |
 | Clangd                | 17+（推荐）                            | https://github.com/clangd/clangd/releases |
-| VS Code 插件          | CMake Tools、clangd、Cortex-Debug      | VS Code Marketplace |
+| VS Code 插件          | CMake Tools、clangd、Cortex-Debug、
+                          clang-format(Xaver Hellauer)          | VS Code Marketplace |
+|clang-format.exe       |将bin/.clang-format.exe放到指定目录下，并在settings.json中 设置 | https://github.com/llvm/llvm-project/releases/
 
 ## 快速开始
 
