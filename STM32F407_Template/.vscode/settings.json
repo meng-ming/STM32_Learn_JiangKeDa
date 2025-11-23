@@ -1,0 +1,25 @@
+{
+    // ========================================
+    // CMake Tools 终极配置（2025 年最强版）
+    // ========================================
+    "cmake.generator": "Ninja",
+    "cmake.configureOnOpen": true, // 打开项目自动 Configure
+    "cmake.buildDirectory": "${workspaceFolder}/build", // build 目录
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/arm-gcc.cmake",
+        "CMAKE_MAKE_PROGRAM": "D:/Arm_Development_Toolchains/ninja/ninja.exe"
+    },
+    "cmake.scanForKits": false,
+    "cmake.allowComments": true,
+    // ========================================
+    // C/C++ 插件终极补全配置（关键！！！）
+    // ========================================
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.autocomplete": "default",
+    "C_Cpp.errorSquiggles": "enabled",
+    // 可选：让 CMake Tools 每次 Configure 都重新生成 compile_commands.json
+    "cmake.configureArgs": [
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+    ]
+}
