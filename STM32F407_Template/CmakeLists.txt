@@ -46,7 +46,6 @@ add_link_options(
 add_compile_definitions(
     STM32F40_41xxx              # 芯片系列宏
     USE_STDPERIPH_DRIVER        # 启用官方 SPL 库
-    HSE_VALUE=8000000           # 外部晶振 8MHz（改成 25MHz 就写 25000000）
     USE_FULL_ASSERT=1           # 开启断言（调试神器，出错直接告诉你哪一行）
 )
 

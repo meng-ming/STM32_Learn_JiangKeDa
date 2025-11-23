@@ -2,6 +2,9 @@
 # CMake + Ninja + VS Code 终极忽略规则
 # ========================================
 
+!arm-gcc.cmake          # 工具链文件，必须提交！！！
+!Config.cmake           # 芯片配置，必须提交！！！
+
 # CMake 生成的所有缓存和中间文件
 build/
 .cmake/
