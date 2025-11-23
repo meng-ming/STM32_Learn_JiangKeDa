@@ -1,3 +1,6 @@
+# 强制让 CMake 生成完整编译选项（clangd 必须！！！）
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 cmake_minimum_required(VERSION 3.16)
 project(WeatherClock C ASM)
 
@@ -55,7 +58,7 @@ add_subdirectory(Drivers/SPL_F4)
 # CONFIGURE_DEPENDS = 关键！每次 configure 都会重新扫描
 # =======================================================
 file(GLOB_RECURSE USER_SOURCES CONFIGURE_DEPENDS "User/Src/*.c")
- 
+
 # 启动文件（GCC 版）
 set(STARTUP_FILE "Core/startup/startup_stm32f407xx.s")
 

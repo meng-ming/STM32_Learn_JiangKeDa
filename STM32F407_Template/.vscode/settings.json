@@ -1,25 +1,43 @@
 {
-    // ========================================
-    // CMake Tools 终极配置（2025 年最强版）
-    // ========================================
-    "cmake.generator": "Ninja",
-    "cmake.configureOnOpen": true, // 打开项目自动 Configure
-    "cmake.buildDirectory": "${workspaceFolder}/build", // build 目录
-    "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/arm-gcc.cmake",
-        "CMAKE_MAKE_PROGRAM": "D:/Arm_Development_Toolchains/ninja/ninja.exe"
-    },
-    "cmake.scanForKits": false,
-    "cmake.allowComments": true,
-    // ========================================
-    // C/C++ 插件终极补全配置（关键！！！）
-    // ========================================
-    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
-    "C_Cpp.intelliSenseEngine": "default",
-    "C_Cpp.autocomplete": "default",
-    "C_Cpp.errorSquiggles": "enabled",
-    // 可选：让 CMake Tools 每次 Configure 都重新生成 compile_commands.json
+    // ==================== CMake 核心配置 ====================
+    "cmake.configureOnOpen": true,
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    // 强制让 CMake 生成 compile_commands.json（clangd 必须）
     "cmake.configureArgs": [
         "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-    ]
+    ],
+    // ==================== clangd 终极配置 ====================
+    "clangd.path": "clangd", // 直接用 PATH 里的 clangd
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders=true",
+        "--all-scopes-completion",
+        "--pretty",
+        "-j=12", // 并发索引，飞快
+        "--compile-commands-dir=${workspaceFolder}/build" // 关键：自动读取 CMake 生成的编译数据库
+    ],
+    // ==================== 彻底关闭微软那个又慢又蠢的 C/C++ 插件 ====================
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.formatting": "Disabled",
+    "C_Cpp.loggingLevel": "None",
+    "C_Cpp.enhancedColorization": "Disabled",
+    "C_Cpp.default.enabled": false,
+    // ==================== 可选美化（大厂标配） ====================
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c"
+    },
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/arm-gcc.cmake"
+    },
+    "cmake.generator": "Ninja"
 }
