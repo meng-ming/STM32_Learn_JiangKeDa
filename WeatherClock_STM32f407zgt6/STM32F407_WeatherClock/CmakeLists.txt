@@ -60,7 +60,7 @@ add_subdirectory(Drivers/SPL_F4)
 # 自动扫描所有用户源码（新增文件无需改 CMake！）
 # CONFIGURE_DEPENDS = 关键！每次 configure 都会重新扫描
 # =======================================================
-file(GLOB_RECURSE USER_SOURCES CONFIGURE_DEPENDS "User/src/*.c")
+file(GLOB_RECURSE USER_SOURCES CONFIGURE_DEPENDS "User/Src/*.c")
 
 # 启动文件（GCC 版）
 set(STARTUP_FILE "Core/startup/startup_stm32f407xx.s")
@@ -73,7 +73,7 @@ add_executable(${PROJECT_NAME}.elf
 
 # 头文件搜索路径
 target_include_directories(${PROJECT_NAME}.elf PRIVATE
-    User/inc
+    User/Inc
     Drivers/CMSIS
     Drivers/SPL_F4/inc
 )
