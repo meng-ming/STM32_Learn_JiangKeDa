@@ -65,3 +65,9 @@ Thumbs.db
 *.tmp
 *.swp
 *~
+
+# 忽略 .cache 文件夹
+*/.cache/
+
+# 忽略所有的 .zip 文件
+*.zip
